@@ -69,7 +69,7 @@ function(generic_find)
       endif ()
     endif ()
 
-    set (FORCE_GENERIC_FIND FALSE CACHE BOOLEAN "Force search of libraries each time cmake is executed")
+    set (FORCE_GENERIC_FIND FALSE CACHE BOOL "Force search of libraries each time cmake is executed")
 
     if (NOT SEARCH_AGAIN AND NOT FORCE_GENERIC_FIND)
       message (STATUS "${GF_LIBNAME} Already found")
@@ -110,7 +110,7 @@ function(generic_find)
     find_package(${GF_LIBNAME} QUIET)
   endif ()
 
-  if (DEFINED ${GF_LIBNAME}_FOUND AND ${${GF_LIBNAME}_FOUND})
+  if (DEFINED ${GF_LIBNAME}_FOUND)
     if (NOT DEFINED GF_COMPONENTS)
       if (DEFINED GF_REQUIRED)
         find_package(${GF_LIBNAME})
